@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "study boilter-plate",
   "main": "index.js",
+  "engine": {
+    "node": "14.18.1",
+    "npm": "6.14.15"
+  },
   "scripts": {
     "start": "node server/index.js",
     "backend": "nodemon server/index.js",
@@ -18,10 +22,22 @@
     "concurrently": "^6.4.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.1",
+    "heroku": "^7.59.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hwanheo97/boilerPlate.git"
+  },
+  "keywords": [
+    "benplate"
+  ],
+  "bugs": {
+    "url": "https://github.com/hwanheo97/boilerPlate/issues"
+  },
+  "homepage": "https://github.com/hwanheo97/boilerPlate#readme"
 }
