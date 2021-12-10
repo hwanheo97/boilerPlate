@@ -101,6 +101,6 @@ app.get('/api/users/logout', auth, (req,res) => {
 const port = process.env.port || 5000     //back 서버
 //5000번 포트에서 실행
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${process.env.port}`)
+  console.log(`Example app listening at https://benplate.herokuapp.com/:${port}`)
   //console.log(`Example app listening at http://localhost:${port}`)
 })
