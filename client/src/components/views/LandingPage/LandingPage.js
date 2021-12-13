@@ -15,6 +15,7 @@ function LandingPage(props) {
         axios.get('/api/users/logout')
             .then(response =>{
                 //console.log(response.data);
+ 
                 if(response.data.success){
                     props.history.push('/login')
                 }else{
