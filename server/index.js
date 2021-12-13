@@ -31,7 +31,7 @@ mongoose.connect(config.mongoURI,{
 // })
 
 //회원가입위한 route만들기
-app.post('http://benplate.herokuapp.com/api/users/register', (req,res)=>{
+app.post('/api/users/register', (req,res)=>{
     //회원 가입할때 필요한 정보들을 client에서 가져오면  //그것들을 데이터 베이스에 넣어준다, 저장하기전에 password 암호화 hash
  const user = new User(req.body)   // 회원가입정보 db에 넣기위한 준비  json형태 body <= bodyParser 모듈이 있기때문에 가능
  user.save((err,userInfo)=>{       //save() mongdb 메소드 user 모델에 req.body 저장, userInfo에는 json형태 client 회원가입 정보
@@ -42,7 +42,7 @@ app.post('http://benplate.herokuapp.com/api/users/register', (req,res)=>{
  })
 })
 
-app.post('http://benplate.herokuapp.com/api/users/login',(req,res)=>{
+app.post('/api/users/login',(req,res)=>{
   //요청한 이메일을 데이터베이스에 있는 지 확인 한다.
   User.findOne({email:req.body.email},(err,user)=>{   //user = email,
     if(!user){
@@ -69,7 +69,7 @@ app.post('http://benplate.herokuapp.com/api/users/login',(req,res)=>{
   })
 })
 
-app.get('http://benplate.herokuapp.com/api/users/auth',auth,(req,res)=>{
+app.get('/api/users/auth',auth,(req,res)=>{
 
 //여기까지 미들웨어를 통과해 왔다는 것은 Authentication이 true라는 의미 => client 에 정보 전달
   res.status(200).json({
@@ -84,7 +84,7 @@ app.get('http://benplate.herokuapp.com/api/users/auth',auth,(req,res)=>{
   })
 })
 
-app.get('http://benplate.herokuapp.com/api/users/logout.', auth, (req,res) => {
+app.get('/api/users/logout.', auth, (req,res) => {
 
   User.findOneAndUpdate({_id:req.user._id},
     {token:""},
@@ -95,8 +95,16 @@ app.get('http://benplate.herokuapp.com/api/users/logout.', auth, (req,res) => {
       })
      })
 })
+// //serve static assets if in production
+// if(process.env.NODE.ENV==="production"){
+//   //set static folder
+//   //All the javascript and css files will be read and served from this folder
 
-
+//   app.use(express.static("client/build"));
+//   app.get("*",(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,"../client","build","index.html"));
+//   });
+// }
 
 const port = process.env.PORT || 5000;  
 //app.listen(port, () => {
