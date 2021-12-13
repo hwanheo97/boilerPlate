@@ -31,7 +31,8 @@ function LoginPage(props) {
             .then(response =>{
                 if(response.payload.loginSuccess){
                     props.history.push('/')   //page이동시 사용   => error(21.12.4)
-                    console.log('loginpage', response)    //response = {type: 'login_user', payload: {…}}
+                    console.log('loginpage', response);    //response = {type: 'login_user', payload: {…}}
+                    
                 }else{
                     alert('error')
                 }
