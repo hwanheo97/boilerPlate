@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 module.exports = function(app) {
    
   app.use(
-    '/api',
+    'https://benplate.herokuapp.com/api',
     createProxyMiddleware({
      //proxy로 대체 가능 <= { createProxyMiddleware }
      //target: 'http://localhost:5000',
