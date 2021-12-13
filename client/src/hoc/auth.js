@@ -15,6 +15,7 @@ export default function foo(SpecificComponent, option,adminRoute = null) {
             dispatch(auth())
              .then(response =>{
                 console.log('auth.js',response);
+                
                 //로그인 하지않은 상태
                 if(!response.payload.isAuth){  //isAuth가 false이면 고그 하지 않은 상태
                     if(option){  //option === true은 로그인한 자만 들어갈 수있는 페이지
