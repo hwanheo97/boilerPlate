@@ -6,10 +6,10 @@ import {withRouter} from 'react-router-dom';
 
 function LandingPage(props) {
 
-    useEffect(()=>{
-        axios.get('/api/hello')  //request를 get 방식으로 서버에 보내기 ,proxy 설치후<=http://localhost:5000/api/hello
-        .then(response => console.log(response.data))
-    },[])
+    // useEffect(()=>{
+    //     axios.get('/api/hello')  //request를 get 방식으로 서버에 보내기 ,proxy 설치후<=http://localhost:5000/api/hello
+    //     .then(response => console.log(response.data))
+    // },[])
 
     const onClickHandler =() =>{
         axios.get('/api/users/logout')

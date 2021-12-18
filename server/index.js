@@ -25,10 +25,10 @@ mongoose.connect(config.mongoURI,{
 //root directory에 출력
 //app.get('/', (req, res) => { res.send('Hello React!') })
 
-//request를 받는 router
-app.get('/api/hello', (req,res)=>{
- res.send("hello React using proxy fm 3000 to 5000")
-})
+// //request를 받는 router
+// app.get('/api/hello', (req,res)=>{
+//  res.send("hello React using proxy fm 3000 to 5000")
+// })
 
 //회원가입위한 route만들기
 app.post('/api/users/register', (req,res)=>{
