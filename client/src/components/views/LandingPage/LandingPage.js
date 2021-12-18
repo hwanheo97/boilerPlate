@@ -1,4 +1,4 @@
-//import React,{useEffect} from 'react';
+import React,{useEffect} from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 
@@ -6,15 +6,15 @@ import {withRouter} from 'react-router-dom';
 
 function LandingPage(props) {
 
-    // useEffect(()=>{
-    //     axios.get('/api/hello')  //request를 get 방식으로 서버에 보내기 ,proxy 설치후<=http://localhost:5000/api/hello
-    //     .then(response => console.log(response.data))
-    // },[])
+    useEffect(()=>{
+        axios.get('/api/hello')  //request를 get 방식으로 서버에 보내기 ,proxy 설치후<=http://localhost:5000/api/hello
+        .then(response => console.log(response.data))
+    },[])
 
-    const onClickHandler =(event) =>{
+    const onClickHandler =() =>{
         axios.get('/api/users/logout')
             .then(response =>{
-                //console.log(response.data);
+               console.log('logout',response.data);
  
                 if(response.data.success){
                     props.history.push('/login')

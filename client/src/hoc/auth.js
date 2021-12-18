@@ -10,7 +10,6 @@ export default function foo(SpecificComponent, option,adminRoute = null) {
     function AuthenticationCheck(props){
 
         const dispatch = useDispatch();
-
         useEffect(() => {
             dispatch(auth())
              .then(response =>{
