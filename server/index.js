@@ -106,13 +106,17 @@ if(process.env.NODE.ENV==="production"){
   });
 }
 
-const port =  process.env.PORT || 5000;
+//const port = 5000;    //localhost
+const port = process.env.PORT || 5000;    //deploy시
 //app.listen(port, () => {
 //  console.log(`Example app listening at https://benplate.herokuapp.com:${port}`)
  // console.log(`Example app listening at http://localhost:${port}`)
 //})
+// app.listen(port, function(req,res){
+//   console.log('server running on port ' + port);
+// });
 
-app.listen(port, function(req,res){
+app.listen(port, ()=>{
   console.log('server running on port ' + port);
 
 });
