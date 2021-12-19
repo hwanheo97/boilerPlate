@@ -8,8 +8,8 @@ module.exports = function(app) {
      //proxy로 대체 가능 <= { createProxyMiddleware }
    //  target: 'http://localhost:5000',    //local
    //target: localhost:process.env.PORT || 5000,
-  //  target: 'http://3.139.239.112/process.env.PORT || 5000',    //deploy
-   target: 'https://benplate.herokuapp.com/process.env.PORT || 5000',
+  //  target: 'http://3.139.239.112/process.env.PORT || 5000',    //deploy aws okay
+   target: 'https://benplate.herokuapp.com:process.env.PORT || 5000',
       changeOrigin: true,
       
     })
