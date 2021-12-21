@@ -107,7 +107,7 @@ if(process.env.NODE.ENV==="production"){
 }
 
 //const port = 5000;    //localhost  & deploy시
-const port = process.env.PORT || 5000 ;    
+const port = process.env.PORT || 8080 ;    
 //app.listen(port, () => {
 //  console.log(`Example app listening at https://benplate.herokuapp.com:${port}`)
  // console.log(`Example app listening at http://localhost:${port}`)
