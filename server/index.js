@@ -98,18 +98,23 @@ app.get('/api/users/logout', auth, (req,res) => {
 //serve static assets if in production
 if(process.env.NODE.ENV==="production"){
   //set static folder
-  //All the javascript and css files will be read and served from this folder
+  //All the javascript and css files will be read and served from this folder 
+  const root = require('path').join(__dirname,"../client","build");
+  app.use(express.static(root));
+  app.get('*', (req,res)=>{
+    res.sendFile('index.html',{root});
+  })
 
-  app.use(express.static("client/build"));
-  app.get("*",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"../client","build","index.html"));
-  });
+  // app.use(express.static("client/build"));
+  // app.get("*",(req,res)=>{
+  //   res.sendFile(path.resolve(__dirname,"../client","build","index.html"));
+  // });
 }
 
 //const port = 5000;    //localhost  & deploy시
 const port = process.env.PORT || 5000 ;    
 //app.listen(port, () => {
- console.log(`Example app listening at https://benplate.herokuapp.com:${port}`)
+ //console.log(`Example app listening at https://benplate.herokuapp.com:${port}`)
  // console.log(`Example app listening at http://localhost:${port}`)
 //})
 // app.listen(port, function(req,res){
