@@ -99,16 +99,16 @@ app.get('/api/users/logout', auth, (req,res) => {
 if(process.env.NODE.ENV==="production"){
   //set static folder
   //All the javascript and css files will be read and served from this folder 
-  const root = require('path').join(__dirname,"../client","build");
-  app.use(express.static(root));
-  app.get('*', (req,res)=>{
-    res.sendFile('index.html',{root});
-  })
+  // const root = require('path').join(__dirname,"../client","build");
+  // app.use(express.static(root));
+  // app.get('*', (req,res)=>{
+  //   res.sendFile('index.html',{root});
+  // })
 
-  // app.use(express.static("client/build"));
-  // app.get("*",(req,res)=>{
-  //   res.sendFile(path.resolve(__dirname,"../client","build","index.html"));
-  // });
+  app.use(express.static("client/build"));
+  app.get("*",(req,res)=>{
+    res.sendFile(path.resolve(__dirname,"../client","build","index.html"));
+  });
 }
 
 //const port = 5000;    //localhost  & deploy시
