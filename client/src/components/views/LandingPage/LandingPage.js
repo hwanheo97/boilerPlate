@@ -12,7 +12,7 @@ function LandingPage(props) {
     // },[])
 
     const onClickHandler =() =>{
-        axios.get('https://localhost/api/users/logout')
+        axios.get('/api/users/logout')
             .then(response =>{
                console.log('logout',response.data);
  
