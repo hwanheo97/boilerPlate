@@ -12,7 +12,7 @@ function LandingPage(props) {
     // },[])
 
     const onClickHandler =() =>{
-        axios.get('/api/users/logout')
+        axios.get('https://benplate.herokuapp.com/api/users/logout')
             .then(response =>{
                console.log('logout',response.data);
  
